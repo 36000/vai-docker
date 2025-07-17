@@ -33,8 +33,8 @@ RUN apt-get update && apt-get install -y \
  && rm -rf /var/lib/apt/lists/*
 
 # Version of VAI to build, can be overridden for `docker build` using '--build-arg`
-ARG VAI_VERSION=4.2.2.1.b
-ARG VAI_SHA2=564415a97b31723f421d99e85e97902a6f5521e8fe8acc726355b73f0f47f859
+ARG VAI_VERSION=5.0.3.1.b
+ARG VAI_SHA2=258627001c685aa9feed34a013b48003456f5fc5239151d6a5d5440b51fc795e
 
 ARG VAI_DIR=/opt/TopazVideoAIBETA
 ENV VAI_VERSION=${VAI_VERSION}
