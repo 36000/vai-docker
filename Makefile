@@ -25,12 +25,9 @@ login:    ## Refresh the auth.tpz license file
 		${IMAGE}.sif login
 
 yellowearth:
-	docker run --rm -ti --gpus all --user $(UID):$(GID) --name vai-test --hostname $(HOSTNAME) \
-		-v $(PWD)/models:/models \
-		-v $(PWD)/movies:/movies \
-		-v $(PWD)/auth/auth.tpz:/opt/TopazVideoAIBETA/models/auth.tpz \
-		-v $(PWD):/workspace \
-		$(IMAGE) \
+	apptainer run --nv --cleanenv --containall --writable-tmpfs \
+		--bind "$(PWD)/models:/models,$(PWD)/movies:/movies,$(PWD)/auth/auth.tpz:/opt/TopazVideoAIBETA/models/auth.tpz,$(PWD):/workspace" \
+		${IMAGE}.sif \
 		ffmpeg "-hide_banner" "-i" "/movies/yellowearth.mp4" \
 		"-sws_flags" "spline+accurate_rnd+full_chroma_int" \
 		"-filter_complex" \
