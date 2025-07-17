@@ -1,8 +1,8 @@
 srun\
     --time=4:00:00\
-    -p gpu-a40\
+    -p gpu-rtx6k\
     -A escience\
-    --cpus-per-task=16\
-    --gpus=2 \
-    --mem=128G\
+    --cpus-per-task=4\
+    --gpus=1\
+    --mem=32G\
     make yellowearth
