@@ -15,10 +15,7 @@ help:
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[1;32m%-10s\033[0m %s\n", $$1, $$2}'
 
 build:    ## Build image capable of using fp16/32 models
-	apptainer build --nv --fakeroot \
-		--build-arg "VAI_VERSION=${VAI_VERSION}" \
-		--build-arg "VAI_SHA2=${VAI_SHA2}" \
-		--force ${IMAGE}.sif topaz.def
+	apptainer build --nv --force ${IMAGE}.sif topaz.def
 
 login:    ## Refresh the auth.tpz license file
 	APPTAINERENV_HOSTNAME=$(HOSTNAME) \
