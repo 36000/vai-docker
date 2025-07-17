@@ -46,18 +46,18 @@ From: nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
     dpkg -i vai.deb
     rm vai.deb
 
-    # Create a user (still runs as root unless you use --fakeroot or drop privileges)
+    # Create user (note: runtime still defaults to root unless overridden)
     useradd -m -s /bin/bash user
+
+    mkdir -p /workspace
 
 %files
     docker-init.sh /docker-init.sh
 
 %runscript
+    cd /workspace
     exec /docker-init.sh "$@"
 
 %labels
     Author John Kruper
     Version 5.0.3.1.b
-
-%workdir
-    /workspace
