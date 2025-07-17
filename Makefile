@@ -18,7 +18,7 @@ build:    ## Build image capable of using fp16/32 models
 	apptainer build --nv --fakeroot \
 		--build-arg "VAI_VERSION=${VAI_VERSION}" \
 		--build-arg "VAI_SHA2=${VAI_SHA2}" \
-		topaz.def ${IMAGE}.sif
+		--force ${IMAGE}.sif topaz.def
 
 login:    ## Refresh the auth.tpz license file
 	APPTAINERENV_HOSTNAME=$(HOSTNAME) \
