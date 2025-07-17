@@ -15,7 +15,7 @@ help:
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[1;32m%-10s\033[0m %s\n", $$1, $$2}'
 
 build:    ## Build image capable of using fp16/32 models
-	apptainer build --fakeroot --dockerfile Dockerfile \
+	apptainer build --nv --fakeroot topaz.def \
 		--build-arg "VAI_VERSION=${VAI_VERSION}" \
 		--build-arg "VAI_SHA2=${VAI_SHA2}" \
 		${IMAGE}.sif
