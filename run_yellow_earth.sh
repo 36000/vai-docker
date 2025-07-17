@@ -1,5 +1,7 @@
+rm movies/yellowearth_corrected.mp4
+
 srun\
-    --time=24:00:00\
+    --time=48:00:00\
     -p gpu-a40\
     -A escience\
     --cpus-per-task=4\
