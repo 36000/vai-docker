@@ -5,6 +5,6 @@ srun\
     -p gpu-a40\
     -A escience\
     --cpus-per-task=16\
-    --gpus=2\
+    --gpus=1\
     --mem=32G\
     make yellowearth
