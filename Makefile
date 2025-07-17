@@ -34,7 +34,6 @@ yellowearth:
 		-c:v h264_videotoolbox \
 		-profile:v high \
 		-pix_fmt yuv420p \
-		-allow_sw 1 \
 		-g 30 \
 		-b:v 0 \
 		-q:v 82 \
