@@ -19,7 +19,7 @@ build:    ## Build image capable of using fp16/32 models
 
 login:    ## Refresh the auth.tpz license file
 	APPTAINERENV_HOSTNAME=$(HOSTNAME) \
-	apptainer run --nv --net --fakeroot --network=host \
+	apptainer run --nv --fakeroot \
 		--bind $(PWD)/auth:/auth \
 		--writable-tmpfs \
 		${IMAGE}.sif login
